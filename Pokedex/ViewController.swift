@@ -7,13 +7,12 @@
 
 import UIKit
 
+//FRON CLASS CLEAR, ONLY OUTLETS
 class ViewController: UIViewController {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view.
-    }
-
-
+    @IBOutlet weak var tableView: UITableView!
+    var index = 0
+    var itemsCount = 0
+    var items : [Pokemon] = []
 }
 
