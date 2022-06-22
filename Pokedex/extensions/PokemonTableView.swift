@@ -18,17 +18,19 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource, UIScrollVi
         tableView.delegate = self
         tableView.dataSource = self
         
-        //start request with first page
+        //start request for the first page
         getNextPage()
     }
     
     func getNextPage(){
         
-        for i in index...(index + 29){
-            let pokemon = Pokemon(id: (i + 1))
-            items.append(contentsOf: [pokemon])
+        if  items.count >= 150{
+            return
         }
         
+        for i in index...(index + 29) {
+            items.append(contentsOf: [Pokemon(id: (i + 1))])
+        }
         index = items.count
     }
     
@@ -37,15 +39,39 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource, UIScrollVi
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: "pokeCell", for: indexPath) as! pokeCell
-        items[indexPath.row] = cell.setPokemon(item: items[indexPath.row])
+        
+        let pokemonItem = items[indexPath.row]
+        
+        //if pokemon info request have made it, properties must be contain info
+        //so if it doestn have, we look for it and save it
+        if(pokemonItem.forms.count == 0 || pokemonItem.types.count == 0){
+            cell.getPokemon(item: pokemonItem){ [weak self] result in
+                switch result {
+                case .success(let p):
+                    //store the pokemon
+                    self?.items[indexPath.row] = p
+                    //asign at the cell
+                    cell.pokemon = p
+                    //show the info in the main thread
+                    DispatchQueue.main.async {
+                        cell.setPokemon()
+                    }
+                case .failure(let error):
+                    print("We got some error at print cells: \(error)")
+                }
+            }
+        }
+        else{
+            cell.pokemon = pokemonItem
+            cell.setPokemon()
+        }
+        
+        
+        
         return cell
     }
-    
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        let vc = segue.destination as! PokeDetailViewController
-//        vc.Pokemon = sender as! Pokemon
-//    }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let view =  storyboard?.instantiateViewController(withIdentifier: "PokeDetailViewController") as! PokeDetailViewController
@@ -54,12 +80,15 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource, UIScrollVi
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        if items.count <= 150{
-            if tableView.contentOffset.y >= (tableView.contentSize.height - tableView.frame.size.height){
-                //you reached end of the table
-                getNextPage()
-                tableView.reloadData()
-            }
+        
+        //infinite scroll
+        //if list has not fill with the first 150 AND
+        //if the user has scrolled to the bottom of the list
+        if index < pokedexLimit && tableView.contentOffset.y >= (tableView.contentSize.height - tableView.frame.size.height + 50){
+            //you reached end of the table
+            getNextPage()
+            tableView.reloadData()
         }
+        
     }
 }

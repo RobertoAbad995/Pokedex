@@ -13,11 +13,15 @@ struct Pokemon: Codable {
     var id: Int
     var forms: [Forms]
     var types: [PokeType]
+    var weight: Int
+    var abilities:[ability]
     
     init(id:Int){
         self.id = id
         forms = [Forms]()
         types = [PokeType]()
+        weight = 0
+        abilities = [ability]()
     }
 }
 struct PokeType: Codable{
@@ -27,5 +31,8 @@ struct PokeType: Codable{
 struct Forms: Codable{
     var name: String
     var url: String
+}
+struct ability: Codable{
+    var ability: Forms
 }
 

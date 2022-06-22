@@ -1,32 +1,37 @@
-//
-//  PokeDetailViewController.swift
-//  Pokedex
-//
-//  Created by Consultant on 6/20/22.
-//
-
 import UIKit
 
 class PokeDetailViewController: UIViewController {
-
     
+    @IBOutlet weak var imgView: UIImageView!
+    @IBOutlet weak var lblName: UILabel!
+    @IBOutlet weak var lblType: UILabel!
+    @IBOutlet weak var lblWeight: UILabel!
+    @IBOutlet weak var lblAbility: UILabel!
+    @IBOutlet weak var lblPokedexId: UILabel!
     var Pokemon: Pokemon!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(Pokemon.forms[0].name)
-        // Do any additional setup after loading the view.
+        
+        if Pokemon.forms.count > 0
+        {
+            
+            imgView.downloaded(from: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/\(Pokemon.id).png")
+            lblName?.font = UIFont.boldSystemFont(ofSize: 16.0)
+            lblName?.text = Pokemon.forms[0].name.uppercased()
+            lblWeight?.text = "\(Pokemon.weight)"
+            lblPokedexId?.text = "\(Pokemon.id)"
+            getMultipleData()
+        }
     }
-
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    
+    func getMultipleData(){
+        for i in Pokemon.types{
+            lblType?.text! += "\(i.type.name) | "
+        }
+        
+        for i in Pokemon.abilities{
+            lblAbility?.text! += "\(i.ability.name) | "
+        }
     }
-    */
-
 }

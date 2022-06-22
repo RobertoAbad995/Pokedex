@@ -13,6 +13,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     var index = 0
     var itemsCount = 0
+    let pokedexLimit = 150
     var items : [Pokemon] = []
 }
 

@@ -25,6 +25,7 @@
 		029F130F285CEDEA003C0512 /* UIImage+LazyLoad.swift in Sources */ = {isa = PBXBuildFile; fileRef = 029F130E285CEDEA003C0512 /* UIImage+LazyLoad.swift */; };
 		029F1314285CF087003C0512 /* PokemonTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 029F1313285CF087003C0512 /* PokemonTableView.swift */; };
 		029F131A285D05BA003C0512 /* Pokemon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 029F1319285D05BA003C0512 /* Pokemon.swift */; };
+		02C5C86828621D8400804AE7 /* Extension+UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C5C86728621D8400804AE7 /* Extension+UserDefaults.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +49,7 @@
 		029F130E285CEDEA003C0512 /* UIImage+LazyLoad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+LazyLoad.swift"; sourceTree = "<group>"; };
 		029F1313285CF087003C0512 /* PokemonTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonTableView.swift; sourceTree = "<group>"; };
 		029F1319285D05BA003C0512 /* Pokemon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pokemon.swift; sourceTree = "<group>"; };
+		02C5C86728621D8400804AE7 /* Extension+UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UserDefaults.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +122,7 @@
 				029F130C285CCFA7003C0512 /* ExtensionURSession+Request.swift */,
 				029F130E285CEDEA003C0512 /* UIImage+LazyLoad.swift */,
 				029F1313285CF087003C0512 /* PokemonTableView.swift */,
+				02C5C86728621D8400804AE7 /* Extension+UserDefaults.swift */,
 			);
 			path = extensions;
 			sourceTree = "<group>";
@@ -214,6 +217,7 @@
 				029F130B285CCF84003C0512 /* Extension+URLSessionError.swift in Sources */,
 				029F12F2285CC63B003C0512 /* ViewController.swift in Sources */,
 				029F12EE285CC63B003C0512 /* AppDelegate.swift in Sources */,
+				02C5C86828621D8400804AE7 /* Extension+UserDefaults.swift in Sources */,
 				029F131A285D05BA003C0512 /* Pokemon.swift in Sources */,
 				029F1303285CC678003C0512 /* PokemonAPI.swift in Sources */,
 				029F1308285CC7CA003C0512 /* PokemonItem.swift in Sources */,
