@@ -15,5 +15,6 @@ class ViewController: UIViewController {
     var itemsCount = 0
     let pokedexLimit = 150
     var items : [Pokemon] = []
+    var fav = [Int]()
 }
 

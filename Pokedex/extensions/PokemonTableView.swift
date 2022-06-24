@@ -10,6 +10,8 @@ import UIKit
 
 extension ViewController: UITableViewDelegate, UITableViewDataSource, UIScrollViewDelegate{
     
+//    var fav = [Int]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -18,6 +20,12 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource, UIScrollVi
         tableView.delegate = self
         tableView.dataSource = self
         
+        //Recover favorites
+        var favorites = [Int]()
+        if let fav = UserDefaults.standard.array(forKey: "favorites") as? [Int] {
+            favorites = fav
+        }
+        self.fav = favorites
         //start request for the first page
         getNextPage()
     }
@@ -69,13 +77,57 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource, UIScrollVi
         }
         
         
+        //add favorite button
+        //add favourite button and select image button with FILL OR REGULAR STAR
+        let button = UIButton(frame: CGRect(x: 0, y: 0, width: 30, height: 30))
+        
+        
+        button.setImage(UIImage(systemName: (fav.contains(indexPath.row) ? "star.fill" : "star")), for: .normal)
+        
+//        if fav.contains(indexPath.row)
+//        {
+//            button.setImage(UIImage(systemName: "star.fill"), for: .normal)
+//        }
+//        else
+//        {
+//            button.setImage(UIImage(systemName: "star"), for: .normal)
+//        }
+        
+        //AD TARGET FUNCTION
+        button.addTarget(self, action: #selector(changeStar(sender:)), for: .touchUpInside)
+        button.tag = indexPath.row
+        cell.accessoryView = button
+        
+        
         
         return cell
+    }
+    
+    @objc func changeStar(sender: UIButton ){
+        let buttonTag = sender.tag
+        
+        if sender.currentImage!.isEqual(UIImage(systemName: "star")) {
+            sender.setImage(UIImage(systemName: "star.fill"), for: .normal)
+            
+            UserDefaults.standard.favorites.append(buttonTag)
+        
+        }else{
+            sender.setImage(UIImage(systemName: "star"), for: .normal)
+            
+            if let num = UserDefaults.standard.favorites.firstIndex(of: buttonTag){
+                UserDefaults.standard.favorites.remove(at: num)
+            }
+        }
+        
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let view =  storyboard?.instantiateViewController(withIdentifier: "PokeDetailViewController") as! PokeDetailViewController
         view.Pokemon = items[indexPath.row]
+        
+        let fav = fav.contains(indexPath.row)
+        
+        view.favourite = fav
         self.navigationController?.show(view, sender: nil)
     }
     

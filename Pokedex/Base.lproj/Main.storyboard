@@ -3,6 +3,8 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -139,6 +141,22 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hce-Cx-TNn">
+                                <rect key="frame" x="354" y="108" width="60" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="60" id="GqJ-aU-n0o"/>
+                                    <constraint firstAttribute="height" constant="60" id="qGc-cg-c9p"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" imagePadding="0.0">
+                                    <imageReference key="image" image="star" catalog="system" symbolScale="large" renderingMode="original"/>
+                                    <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" configurationType="pointSize" pointSize="29"/>
+                                    <color key="baseForegroundColor" name="AccentColor"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="favouriteChange:" destination="8Zb-Wn-Ehb" eventType="touchUpInside" id="iyO-4I-Olo"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="JWV-AH-PzJ"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -149,6 +167,7 @@
                             <constraint firstItem="HYb-jl-qrb" firstAttribute="trailing" secondItem="JWV-AH-PzJ" secondAttribute="trailing" id="5vV-IA-GOh"/>
                             <constraint firstItem="mte-ZT-f7P" firstAttribute="top" secondItem="bK5-K2-zij" secondAttribute="bottom" constant="8" symbolic="YES" id="86s-aU-b52"/>
                             <constraint firstItem="HYb-jl-qrb" firstAttribute="top" secondItem="7O1-ad-m8T" secondAttribute="bottom" constant="32" id="9OC-OS-jP7"/>
+                            <constraint firstItem="hce-Cx-TNn" firstAttribute="top" secondItem="JWV-AH-PzJ" secondAttribute="top" constant="64" id="9pR-Hk-RR0"/>
                             <constraint firstItem="bK5-K2-zij" firstAttribute="trailing" secondItem="JWV-AH-PzJ" secondAttribute="trailing" id="C95-ym-87V"/>
                             <constraint firstItem="EaQ-IZ-Tad" firstAttribute="top" secondItem="HYb-jl-qrb" secondAttribute="bottom" constant="21" id="CZZ-ZU-s1N"/>
                             <constraint firstItem="n9N-XE-sCa" firstAttribute="top" secondItem="q8p-c0-Y7v" secondAttribute="bottom" constant="5" id="Cr4-Lv-HFb"/>
@@ -160,6 +179,7 @@
                             <constraint firstItem="ccE-sK-GEX" firstAttribute="top" secondItem="bK5-K2-zij" secondAttribute="bottom" constant="37" id="Oni-Wp-Kl4"/>
                             <constraint firstItem="7O1-ad-m8T" firstAttribute="trailing" secondItem="JWV-AH-PzJ" secondAttribute="trailing" id="SJu-UQ-qdp"/>
                             <constraint firstItem="mte-ZT-f7P" firstAttribute="leading" secondItem="s0h-7h-kOB" secondAttribute="leadingMargin" constant="-29" id="TKm-Ak-TmF"/>
+                            <constraint firstItem="hce-Cx-TNn" firstAttribute="trailing" secondItem="JWV-AH-PzJ" secondAttribute="trailing" id="UBz-zz-LXe"/>
                             <constraint firstItem="Hgy-Xq-kqX" firstAttribute="top" secondItem="n9N-XE-sCa" secondAttribute="bottom" constant="29" id="UOz-wm-gDd"/>
                             <constraint firstItem="bK5-K2-zij" firstAttribute="leading" secondItem="JWV-AH-PzJ" secondAttribute="leading" id="UR6-nf-AzK"/>
                             <constraint firstItem="HYb-jl-qrb" firstAttribute="leading" secondItem="JWV-AH-PzJ" secondAttribute="leading" id="XTZ-hw-ZbI"/>
@@ -182,6 +202,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="tVI-5n-8tk"/>
                     <connections>
+                        <outlet property="btnFav" destination="hce-Cx-TNn" id="gKX-x7-8hq"/>
                         <outlet property="imgView" destination="HYb-jl-qrb" id="SN0-Mk-NLd"/>
                         <outlet property="lblAbility" destination="bK5-K2-zij" id="AqO-To-Lc1"/>
                         <outlet property="lblName" destination="7O1-ad-m8T" id="bX7-rw-TEm"/>
@@ -214,6 +235,10 @@
         </scene>
     </scenes>
     <resources>
+        <image name="star" catalog="system" width="128" height="116"/>
+        <namedColor name="AccentColor">
+            <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

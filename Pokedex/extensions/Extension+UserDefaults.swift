@@ -9,6 +9,27 @@ import Foundation
 
 extension UserDefaults{
     
+    /// Property to save an array of int (ids) so we can store identifiers to
+    /// recognize a list of favorite items
+    var favorites: [Int]
+    {
+        get{
+            let data = array(forKey: userDefaultKeys.favorites.rawValue)
+            
+            if data == nil {
+                return [Int]()
+            }
+            return data as! [Int]
+        }
+        set{
+            setValue(newValue, forKey: userDefaultKeys.favorites.rawValue)
+        }
+    }
+    
+    //User default Keys
+    private enum userDefaultKeys:String{
+        case favorites
+    }
     
     /// This method help to store a image(UIImage) in cache
     /// so this would be faster to read again from the cache by using

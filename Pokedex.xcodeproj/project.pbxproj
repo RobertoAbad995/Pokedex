@@ -10,7 +10,6 @@
 		022EF671286019D7002C35B2 /* pokeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 022EF66F286019D7002C35B2 /* pokeCell.swift */; };
 		022EF672286019D7002C35B2 /* pokeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 022EF670286019D7002C35B2 /* pokeCell.xib */; };
 		022EF67928602ADD002C35B2 /* PokeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 022EF67728602ADD002C35B2 /* PokeDetailViewController.swift */; };
-		022EF67A28602ADD002C35B2 /* PokeDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 022EF67828602ADD002C35B2 /* PokeDetailViewController.xib */; };
 		029F12EE285CC63B003C0512 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 029F12ED285CC63B003C0512 /* AppDelegate.swift */; };
 		029F12F0285CC63B003C0512 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 029F12EF285CC63B003C0512 /* SceneDelegate.swift */; };
 		029F12F2285CC63B003C0512 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 029F12F1285CC63B003C0512 /* ViewController.swift */; };
@@ -32,7 +31,6 @@
 		022EF66F286019D7002C35B2 /* pokeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = pokeCell.swift; sourceTree = "<group>"; };
 		022EF670286019D7002C35B2 /* pokeCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = pokeCell.xib; sourceTree = "<group>"; };
 		022EF67728602ADD002C35B2 /* PokeDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokeDetailViewController.swift; sourceTree = "<group>"; };
-		022EF67828602ADD002C35B2 /* PokeDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PokeDetailViewController.xib; sourceTree = "<group>"; };
 		029F12EA285CC63B003C0512 /* Pokedex.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pokedex.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		029F12ED285CC63B003C0512 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		029F12EF285CC63B003C0512 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -133,7 +131,6 @@
 				022EF66F286019D7002C35B2 /* pokeCell.swift */,
 				022EF670286019D7002C35B2 /* pokeCell.xib */,
 				022EF67728602ADD002C35B2 /* PokeDetailViewController.swift */,
-				022EF67828602ADD002C35B2 /* PokeDetailViewController.xib */,
 			);
 			path = subclass;
 			sourceTree = "<group>";
@@ -199,7 +196,6 @@
 				022EF672286019D7002C35B2 /* pokeCell.xib in Resources */,
 				029F12FA285CC63F003C0512 /* LaunchScreen.storyboard in Resources */,
 				029F12F7285CC63F003C0512 /* Assets.xcassets in Resources */,
-				022EF67A28602ADD002C35B2 /* PokeDetailViewController.xib in Resources */,
 				029F12F5285CC63B003C0512 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
