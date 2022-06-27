@@ -25,12 +25,6 @@ class PokeDetailViewController: UIViewController {
             lblPokedexId?.text = "\(Pokemon.id)"
             getMultipleData()
             btnFav.setImage(UIImage(systemName: (favourite ? "star.fill" : "star")), for: .normal)
-//            if favourite {
-//                btnFav.setImage(UIImage(systemName: "star.fill"), for: .normal)
-//            }
-//            else{
-//                btnFav.setImage(UIImage(systemName: "star"), for: .normal)
-//            }
         }
     }
     
@@ -50,19 +44,13 @@ class PokeDetailViewController: UIViewController {
         favourite = !favourite
         btnFav.setImage(UIImage(systemName: (favourite ? "star.fill" : "star")), for: .normal)
         if favourite{
-            UserDefaults.standard.favorites.remove(at: Pokemon.id)
+            if let index = UserDefaults.standard.favorites.index(of: Pokemon.id){
+                UserDefaults.standard.favorites.remove(at: index)
+            }
+            
         }
         else{
             UserDefaults.standard.favorites.append(Pokemon.id)
         }
-//        if btnFav.currentImage?.isEqual(UIImage(systemName: "star")) {
-//            btnFav.setImage(UIImage(systemName: "star.fill"), for: .normal)
-//            UserDefaults.standard.favorites.append(buttonTag)
-//        }else{
-//            btnFav.setImage(UIImage(systemName: "star"), for: .normal)
-//            if let num = UserDefaults.standard.favorites.firstIndex(of: buttonTag){
-//                UserDefaults.standard.favorites.remove(at: num)
-//            }
-//        }
     }
 }

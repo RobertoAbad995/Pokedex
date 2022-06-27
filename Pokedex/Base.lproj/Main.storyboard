@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="8kA-GO-iRP">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="NPH-6Z-1tr">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
@@ -44,7 +44,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="897.10144927536237" y="123.88392857142857"/>
+            <point key="canvasLocation" x="1517" y="-248"/>
         </scene>
         <!--Details-->
         <scene sceneID="JMA-g3-uJ9">
@@ -213,29 +213,106 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bQP-iy-JlU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1805.7971014492755" y="123.88392857142857"/>
+            <point key="canvasLocation" x="2261" y="-545"/>
         </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="xU5-FG-9Gc">
+        <!--Favorites-->
+        <scene sceneID="g3J-re-Zhc">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="8kA-GO-iRP" sceneMemberID="viewController">
+                <tableViewController id="uJ8-RW-m8O" customClass="FavouritesListViewController" customModule="Pokedex" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="PY7-uM-sTP">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="MwT-Ll-Pii">
+                                <rect key="frame" x="0.0" y="44.5" width="414" height="43.5"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="MwT-Ll-Pii" id="oXi-XN-nD9">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="uJ8-RW-m8O" id="efx-Gc-CJl"/>
+                            <outlet property="delegate" destination="uJ8-RW-m8O" id="NZz-Sx-yzm"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Favorites" id="BTs-od-FJL"/>
+                    <connections>
+                        <outlet property="favTable" destination="PY7-uM-sTP" id="P1G-fz-uVg"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BWg-AE-Wq3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1516" y="-913"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="Kef-Xf-B3A">
+            <objects>
+                <tabBarController id="NPH-6Z-1tr" sceneMemberID="viewController">
+                    <tabBar key="tabBar" alpha="0.65000000000000002" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="iAB-JK-uZM">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="BV0-yf-U3u" kind="relationship" relationship="viewControllers" id="6vM-Qt-eH2"/>
+                        <segue destination="sbw-zz-ZFr" kind="relationship" relationship="viewControllers" id="6nN-52-E9B"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Meo-X9-3Wz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-479" y="-608"/>
+        </scene>
+        <!--Favorites-->
+        <scene sceneID="kIW-Uu-5Y7">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="sbw-zz-ZFr" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Favorites" id="VXc-D5-qnh">
+                        <imageReference key="image" image="star.fill" catalog="system" symbolScale="large"/>
+                        <imageReference key="selectedImage" image="star.fill" catalog="system" symbolScale="large"/>
+                    </tabBarItem>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="faB-7Q-wsy">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="SfA-Hd-anx">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="0IL-DI-BBR"/>
+                        <segue destination="uJ8-RW-m8O" kind="relationship" relationship="rootViewController" id="Aqc-hM-ibD"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="TOH-yZ-ppC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="C7N-eg-rKx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-13.043478260869566" y="123.88392857142857"/>
+            <point key="canvasLocation" x="705.79710144927537" y="-913.39285714285711"/>
+        </scene>
+        <!--Pokedex-->
+        <scene sceneID="hro-Ga-4dP">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="BV0-yf-U3u" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Pokedex" id="hdA-YD-1Nz">
+                        <imageReference key="image" image="list.dash" catalog="system" symbolScale="large"/>
+                    </tabBarItem>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="mk5-dS-7AN">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="jiZ-xU-WrF"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="e5d-bV-O2a" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="704" y="-248"/>
         </scene>
     </scenes>
     <resources>
+        <image name="list.dash" catalog="system" width="128" height="85"/>
         <image name="star" catalog="system" width="128" height="116"/>
+        <image name="star.fill" catalog="system" width="128" height="116"/>
         <namedColor name="AccentColor">
             <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
